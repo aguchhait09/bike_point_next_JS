@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
@@ -18,9 +18,32 @@ export default function Home() {
       <main>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Company</TableCell>
+                    <TableCell >City</TableCell>
+                    <TableCell >Country</TableCell>
+                    <TableCell >Name</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                      </TableCell>
+                      <TableCell ></TableCell>
+                      <TableCell ></TableCell>
+                      <TableCell ></TableCell>
+                    </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Grid>
           <Grid item xs={6}>
-          <DymanicMap />
+            <DymanicMap />
           </Grid>
         </Grid>
       </main>
