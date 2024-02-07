@@ -1,0 +1,37 @@
+{
+  "name": "bike_point_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^5.15.7",
+    "@tanstack/react-query": "^5.18.1",
+    "@types/leaflet": "^1.9.8",
+    "@types/react-leaflet": "^3.0.0",
+    "axios": "^1.6.7",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-geolocated": "^4.1.2",
+    "react-leaflet": "^4.2.1",
+    "react-leaflet-custom-control": "^1.4.0",
+    "react-leaflet-fullscreen": "^4.1.1",
+    "react-leaflet-google-layer": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}
