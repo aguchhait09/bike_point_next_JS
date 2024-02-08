@@ -89,35 +89,11 @@ const Map = () => {
             )
           })
         }
-        {/* {
-          location.loaded && (
-            <Marker 
-                icon={myIcon}
-                 position={[
-                  42,
-                  49
-                 ]}>
-                  <Popup>
-                    My Location
-                  </Popup>
-                </Marker>
-          )
-        } */}
         <FullscreenControl />
         <Control prepend position='topright'>
           {
             switched === 'satelite' ? (
               <>
-                <Box sx={{ my: 1 }}>
-                  <Button sx={{
-                    backgroundColor: 'white', color: 'black', '&:hover': {
-                      backgroundColor: 'white',
-                      boxShadow: 'none',
-                    }
-                  }} onClick={() => setSwitched('satelite')}>
-                    Satelite View
-                  </Button>
-                </Box>
                 <Box>
                   <Button sx={{
                     backgroundColor: 'white', color: 'black', '&:hover': {
@@ -139,17 +115,6 @@ const Map = () => {
                     }
                   }} onClick={() => setSwitched('satelite')}>
                     Satelite View
-                  </Button>
-                </Box>
-                <Box>
-                  <Button sx={{
-                    backgroundColor: '#333634', color: 'white', '&:hover': {
-                      backgroundColor: '#333634',
-                      boxShadow: 'none',
-                      color: 'white'
-                    }
-                  }} onClick={() => setSwitched('normal')}>
-                    Street View
                   </Button>
                 </Box>
               </>
