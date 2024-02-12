@@ -68,6 +68,32 @@ const Mapp = () => {
   }, [mapBounds])
 console.log("withinBoundsData",withinBoundsData)
 
+// Location Find
+const [position, setPosition] = useState(null)
+  function UserLocation(){
+    const mapp = useMapEvents({
+      click() {
+        mapp.locate()
+      },
+      locationfound(e) {
+        setPosition(e.latlng as any)
+        mapp.flyTo(e.latlng, mapp.getZoom())
+      },
+    })
+
+    console.log('position', position);
+    
+    return position === null ? null : (
+      <Marker position={position} icon={myIcon2}>
+        <Popup>You are here</Popup>
+      </Marker>
+    )
+  }
+  const myIcon2 = new Icon({
+    iconUrl: assets.pointer,
+    iconSize: [32, 32]
+  })
+
   return (
     <>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -76,10 +102,10 @@ console.log("withinBoundsData",withinBoundsData)
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Company</TableCell>
-                  <TableCell >City</TableCell>
-                  <TableCell >Country</TableCell>
-                  <TableCell >Name</TableCell>
+                  <TableCell sx={{fontWeight: 'bold'}}>Company <br /> Total: {withinBoundsData?.length}</TableCell>
+                  <TableCell sx={{fontWeight: 'bold'}}>City</TableCell>
+                  <TableCell sx={{fontWeight: 'bold'}}>Country</TableCell>
+                  <TableCell sx={{fontWeight: 'bold'}}>Name</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -92,9 +118,9 @@ console.log("withinBoundsData",withinBoundsData)
                         >
                           <TableCell component="th" scope="row">{item?.company}
                           </TableCell>
-                          <TableCell ></TableCell>
-                          <TableCell ></TableCell>
-                          <TableCell ></TableCell>
+                          <TableCell >{item?.location?.city}</TableCell>
+                          <TableCell >{item?.location?.country}</TableCell>
+                          <TableCell >{item?.name}</TableCell>
                         </TableRow>
                       </>
                     )
@@ -106,9 +132,8 @@ console.log("withinBoundsData",withinBoundsData)
         </Grid>
         <Grid item xs={6}>
           <MapContainer
-            center={[0, 0]}
-            zoom={2}
-
+            center={[51.505, -0.09]}
+            zoom={13}
             scrollWheelZoom={true}
             style={{
               height: "100vh",
@@ -150,6 +175,7 @@ console.log("withinBoundsData",withinBoundsData)
                 )
               })
             }
+            <UserLocation/>
             <FullscreenControl />
             <Control prepend position='topright'>
               {
@@ -183,6 +209,7 @@ console.log("withinBoundsData",withinBoundsData)
                 )
               }
             </Control>
+            
           </MapContainer>
         </Grid>
       </Grid>
