@@ -6,7 +6,7 @@ import { AllNetwork } from '@/typescript/interface/allNetwork.interface';
 import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '@/api/axiosInstance';
 import assets from '@/json/assets';
-import { Icon, LatLngBounds, LatLngBoundsExpression, LatLngExpression, Map } from 'leaflet';
+import { Icon, LatLng, LatLngBounds, LatLngBoundsExpression, LatLngExpression, Map } from 'leaflet';
 import { FullscreenControl } from 'react-leaflet-fullscreen';
 import "react-leaflet-fullscreen/styles.css";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
@@ -69,14 +69,14 @@ const Mapp = () => {
 console.log("withinBoundsData",withinBoundsData)
 
 // Location Find
-const [position, setPosition] = useState(null)
+const [position, setPosition] = useState<LatLng |null>(null)
   function UserLocation(){
     const mapp = useMapEvents({
       click() {
         mapp.locate()
       },
       locationfound(e) {
-        setPosition(e.latlng as any)
+        setPosition(e.latlng)
         mapp.flyTo(e.latlng, mapp.getZoom())
       },
     })
