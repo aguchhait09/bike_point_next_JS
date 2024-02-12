@@ -10,7 +10,6 @@ import { Icon, LatLngBounds, Map } from 'leaflet';
 import { FullscreenControl } from 'react-leaflet-fullscreen';
 import "react-leaflet-fullscreen/styles.css";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
-import useGeolocation from '@/hooks/useGeolocation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import Control from 'react-leaflet-custom-control';
@@ -39,9 +38,6 @@ const Mapp = () => {
   })
 
   console.log('bikepoints', bikepoints)
-
-  const location = useGeolocation()
-  console.log('loc', location);
 
 
   const [switched, setSwitched] = useState("");
