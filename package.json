@@ -24,6 +24,7 @@
     "react-dom": "^18",
     "react-geolocated": "^4.1.2",
     "react-leaflet": "^4.2.1",
+    "react-leaflet-cluster": "^2.1.0",
     "react-leaflet-custom-control": "^1.4.0",
     "react-leaflet-fullscreen": "^4.1.1",
     "react-leaflet-google-layer": "^2.2.0"
