@@ -6,7 +6,7 @@ import { AllNetwork } from '@/typescript/interface/allNetwork.interface';
 import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '@/api/axiosInstance';
 import assets from '@/json/assets';
-import { Icon, LatLngBounds, Map } from 'leaflet';
+import { Icon, LatLngBounds, LatLngBoundsExpression, LatLngExpression, Map } from 'leaflet';
 import { FullscreenControl } from 'react-leaflet-fullscreen';
 import "react-leaflet-fullscreen/styles.css";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";

@@ -1,11 +1,11 @@
 import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+const DymanicMap = dynamic(() => import("./map/Mapp"), {
+  ssr: false,
+});
 
 export default function Home() {
-  const DymanicMap = dynamic(() => import("./map/Mapp"), {
-    ssr: false,
-  });
 
   return (
     <>
